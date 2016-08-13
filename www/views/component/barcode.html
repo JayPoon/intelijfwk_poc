@@ -1,0 +1,33 @@
+<ion-view view-title="条形码／二维码扫描">
+    <ion-content class="padding">
+        <div class="card">
+            <!--<div class="item ">
+                ionic plugin add cordova-plugin-device
+            </div>-->
+            <div class="item item-divider">
+                <button class="button button-block button-positive"     
+                ng-click="scancode()">
+                    点我扫码
+                </button>
+            </div>
+            
+            <div class="item item-text-wrap">
+                <ul class="list">
+                    <li class="item">
+                        文本: {{text}}
+                    </li>
+                    <li class="item">
+                        格式 : {{format}}
+                    </li>
+                    <li class="item">
+                        取消 : {{cancelled}}
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="item item-divider text-right">
+                from <code>ngCordova</code>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

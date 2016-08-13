@@ -1,0 +1,50 @@
+<div class="main" ng-app="myApp" ng-controller="pluginCtrl" >
+    <link href="css/plugin/plugin.css" rel="stylesheet">
+
+        <!--<header class="id_header">-->
+        <!--<div class="back"></div>-->
+        <!--<div class="title">原生插件</div>-->
+        <!--</header>-->
+        <header style="height:64px">
+            <div style=" background-color: #2d6bb0;height: 20px"></div>
+            <div class="id_header">
+                <div class="back" ng-click="backto()"></div>
+                <div class="title">原生插件</div>
+            </div>
+        </header>
+        <button class="all"  style="float: left;width: 30%;margin-left: 10%;" ng-click="aliPay()">
+            支付宝支付
+        </button>
+        <button class="all" style="float: right;width: 30%;margin-right: 10%;" ng-click="wxPay()">
+            微信支付
+        </button>
+        <button class="all" id="qqBtn" style="float: left;width: 30%;margin-left: 10%;" ng-click="shareclick()">
+            自定义分享
+        </button>
+        <button class="all" style="float: right;width: 30%;margin-right: 10%; font-size: 13px;" ng-click="scanclick()">
+            二维码/条形码
+        </button>
+        <button class="all" style="float: left;width: 30%;margin-left: 10%;" ng-click="cameraclick()">
+            相机/相册
+        </button>
+        <button class="all" style="float: right;width: 30%;margin-right: 10%;" ng-click="waterclick()">
+            图片水印
+        </button>
+        <button class="all" style="float: left;width: 30%;margin-left: 10%;" ng-click="shakeclick()">
+            摇一摇
+        </button>
+        <button class="all" style="float: right;width: 30%;margin-right: 10%;font-size: 12px;" ng-click="checkwificlick()">
+            网络状态实时监控
+        </button>
+        <button class="all" style="float: left;width: 30%;margin-left: 10%;" ng-click="pushclick()">
+            推送
+        </button>
+        <button class="all" style="float: right;width: 30%;margin-right: 10%;" ng-click="mdmclick()">
+            MDM
+        </button>
+
+
+
+    </div>
+
+</div>

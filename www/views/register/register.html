@@ -1,0 +1,79 @@
+<ion-view view-title="新用户注册">
+  <ion-content class="padding">
+    <form name="authorizationForm" 
+    ng-submit="signup()" novalidate>
+    
+    <!--email form-->
+    <div class="list list-inset">
+      <label class="item item-input"" ng-class="{ 'has-errors' : authorizationForm.email.$invalid && authorizationForm.email.$dirty}">
+        <input type="email" ng-model="email" name="email" placeholder='请输入邮箱' ng-maxlength=30 autocomplete="off" required>
+      
+      <div class="error-container" ng-show="authorizationForm.email.$dirty " ng-messages="authorizationForm.email.$error ">
+              <div ng-messages-include="error-email-list.html"></div>
+      </div>
+      </label>
+      <!--password form-->
+      <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.password.$invalid && authorizationForm.password.$dirty}">
+        <input type="password" name="password" ng-model="password" placeholder="请输入6~12位密码" autocomplete="off"
+        ng-minlength=6 ng-maxlength=12 required>
+      
+      
+      <div class="error-container" ng-show="authorizationForm.password.$dirty" ng-messages="authorizationForm.password.$error ">
+              <div ng-messages-include="error-pwd-list.html"></div>
+      </div>
+      </label>
+      <!--repassword-->
+      <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.cfmpassword.$invalid && authorizationForm.cfmpassword.$dirty}">
+         <input ng-model="cfmpassword" type="password" name="cfmpassword" placeholder='再次输入密码' required
+         compare-to="password">
+
+          <div class="error-container" ng-show="authorizationForm.cfmpassword.$dirty" ng-messages="authorizationForm.cfmpassword.$error ">
+              <div ng-messages-include="error-pwd-list.html"></div>
+          </div>
+      </label>
+     	
+	</div>
+		<div class="padding">
+			<button type="submit" class="button button-block button-positive"
+            
+            >注册</button>
+		</div>
+    </form>
+  </ion-content>
+  <script id="error-email-list.html" type="text/ng-template">  
+        <div class="error" ng-message="required">
+        <span>请输入邮箱!</span>
+        </div>
+        <div class="error" ng-message="minlength">
+        <span>请输入邮箱!</span>
+        </div>
+        <div class="error" ng-message="maxlength">
+        <span>请输入邮箱!</span>
+        </div>
+        <div class="error" ng-message="email">
+        <span>非法的邮箱格式!</span>
+        </div>
+    </script>   
+    <script id="error-pwd-list.html" type="text/ng-template">  
+        <div class="error" ng-message="required"><span>
+        请输入6~12位密码</span>
+        </div>
+        <div class="error" ng-message="minlength">
+        <span>
+        请输入6~12位密码</span>
+        </div>
+        <div class="error" ng-message="maxlength">
+        <span>
+        请输入6~12位密码</span>
+        </div>
+        <div class="error" ng-message="compareTo">
+        <span>
+            输入的密码不一致
+        </span>
+        </div>
+    </script>   
+</ion-view>
+
+
+
+

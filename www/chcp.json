@@ -1,0 +1,8 @@
+{
+  "name": "IntellijMobileFramework",
+  "ios_identifier": "com.infinitus.mobile.fwk",
+  "android_identifier": "com.infinitus.mobile.fwk",
+  "update": "now",
+  "content_url": "https://3c9e0892.ngrok.io",
+  "release": "2016.08.07-02.24.57"
+}

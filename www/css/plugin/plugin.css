@@ -1,0 +1,39 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    TEXT-ALIGN: center;
+}
+.back{
+    margin-left: 1em;
+    margin-top: 12px;
+    float: left;
+    width: 12px;
+    height: 20px;
+    background-image: url(../../img/back.png);
+}
+.title{
+    margin-left: auto;
+    margin-right:auto ;
+    font-family: PingFangSC-Regular;
+    font-size: 18px;
+    line-height: 44px;
+    color:#ffffff;
+}
+
+.id_header {
+    background-color: #2d6bb0;
+    height: 44px;
+}
+
+.all{
+    margin-top: 35px;
+    height: 50px;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color:#ffffff;
+    line-height: 50px;
+    background-color: #2d6bb0;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius:10px;
+}

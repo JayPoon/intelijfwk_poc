@@ -1,0 +1,35 @@
+<div ng-controller="nosearchCtrl">
+    <link href="css/plugin/search.css" rel="stylesheet">
+    <header style="height: 64px;width:100%;">
+        <div style=" background-color: #2d6bb0;height: 20px"></div>
+        <div class="id_header" ><b>公众号</b>
+            <div style="width: 50px;float: left"  ng-click="backto()">
+                <div class="back"></div>
+            </div>
+            <div class="go" ng-click="goto()"><b>...</b></div>
+        </div>
+    </header>
+    <div>
+        <div>
+            <div class="search_list" ng-repeat="search in searchs track by $index">
+                <div class="search_img-div">
+                    <!--<img class="search_img" src="{{search.sys_pic}}">-->
+
+                    <img class="search_img"  ng-src="{imgpath}}">
+
+
+                </div>
+                <div class="titles" >{{search.sys_title}}</div>
+                <div class="search_nocare" ng-click="care(search.system_id)">+关注</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+	

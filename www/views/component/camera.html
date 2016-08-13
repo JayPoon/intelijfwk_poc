@@ -1,0 +1,16 @@
+<ion-view view-title="相机/相册">
+    <ion-content class="padding">
+        
+        <button class="button button-block button-positive" ng-click="takePicture()">
+            点我拍照
+        </button>
+
+        <img class="padding block" ng-src="{{cameraImgSrc}}">
+
+        <button class="button button-block button-positive" ng-click="browseAblum()">
+            浏览相册
+        </button>
+
+        <img class="padding block" ng-src="{{ablumImgSrc}}">
+    </ion-content>
+</ion-view>
