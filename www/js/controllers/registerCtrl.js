@@ -4,29 +4,36 @@ define(["./controllers"], function (controllers) {
 
     controllers.controller("registerCtrl", ["$scope", "$state", "$localStorage", "$timeout", "registerService",
         function ($scope, $state, $localStorage, $timeout, registerService) {
-
+            $scope.email = "1@1"
+            $scope.password = "1@1"
+            $scope.cfmpassword = "1@1"
             //qu login界面
             $scope.backto = function () {
                 $state.go("login");
             }
             $scope.signup = function(form) {
+               
                 if(form.$valid) {
                     // $state.go('home');
                     var params = {
-                        "account": $scope.email,
-                        "pasw": $scope.pwd,
+                        "email": $scope.email,
+                        "password": $scope.password,
                         "accountname": $scope.email
                     };
 
-                    registerService.setRegister(params).then(function (data) {
+                    // registerService.setRegister(params).then(function (data) {
 
-                        if (data.status == 1) {
-                            console.log("Signup succefully.")
-                            $state.go("login");
-                        } else {
+                    //     if (data.status == 1) {
+                    //         console.log("Signup succefully.")
+                    //         $state.go("login");
+                    //     } else {
 
-                        }
+                    //     }
 
+                    // });
+
+                    registerService.register(params).then(function (data) {
+                        alert(data);
                     });
                 }
             };  

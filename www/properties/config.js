@@ -13,9 +13,9 @@
             }
         },
         root:"",
-        base_url:"http://192.168.0.103:8080/clt",
+        base_url:"http://jaypoon-intellijfwkpoc.daoapp.io/",
     //backend接口
-        backends:"http://192.168.0.103:8080/backends",
+        backends:"http://jaypoon-intellijfwkpoc.daoapp.io/",
     //http访问地址
         html_path:"",
     //默认资源存放位置
@@ -28,7 +28,7 @@
         remote_url:"",
     //默认定义参数
         timestmpt:"",
-    img_path:"http://localhost:8080/clt/c_manageController/download.do?fileName=428778e0-1bff-4102-9398-ed6469b7784e.png",
+    img_path:"http://jaypoon-intellijfwkpoc.daoapp.io/c_manageController/download.do?fileName=428778e0-1bff-4102-9398-ed6469b7784e.png",
         css:{
             index:"index.css",
             login:"login.css"
