@@ -115,18 +115,28 @@ define(['angular'], function (angular) {
                 });
             };
 
+            var handleSuccess = function(response){
+                return response.data
+            };
+
+            var handleError = function(response){
+                return response.data
+            };
+
             return {
                 Post: function (apiPath, postData) {
-                    return DoPost(apiPath, postData);
+                    return DoPost(apiPath, postData).then(handleSuccess,handleError);
                 },
                 Get: function (apiPath, params) {
-                    return DoGet(apiPath, params);
+                    return DoGet(apiPath, params).then(handleSuccess,handleError);
+                },
+                Delete: function (apiPath, params) {
+                    return DoDelete(apiPath, params).then(handleSuccess,handleError);
+                },
+                Put: function (apiPath, params) {
+                    return DoPut(apiPath, params).then(handleSuccess,handleError);
                 }
             }
         }])
-
    
-
-    return services;
-    // return angular.module($config.meta.ns.services, []);
 });

@@ -1,23 +1,31 @@
-/**
- * Created by jack on 2016/7/3.
- */
-
-/* JavaScript content from scripts/console/controllers/loginCtrl.js in folder common */
 define(["./services"], function (services) {
     "use strict";
-    //注册服务(服务名,[依赖,回调])
-    services.service('loginService', ['apiService', '$q', function (apiService, $q) {
-        //返回公共API
-        return ({
-            //获得用户信息
-            getUserLogin: getUserLogin
-        });
-        function getUserLogin(params) {
-            var request = apiService.Post('/loginController/mobile_userLogin.do', params);
-            return (request.then(apiService.handleSucess, apiService.handleError));
+    services.service('loginService', ['apiService', '$q', '$localStorage', '$rootScope',
+        function (apiService, $q, $localStorage,$rootScope) {
+        var service = this;
+
+		//用户登录服务
+        service.login = function(params) {
+            return apiService.Post('/loginController/mobile_userLogin.do', params).then(function(responseData){
+                if (responseData.status == "1") {
+                    $localStorage.userId =  responseData.t.userId;
+                }
+                return responseData;
+            });
         }
+		//用户登出服务
+        service.logout = function() {
+            delete $localStorage.userId;
+            $rootScope.$broadcast('unauthorized');
+        }
+		//判读是否为登录状态
+        service.isLogin = function() {
+            return $localStorage.userId != undefined && $localStorage.userId != '';
+        }
+		//获取当前登录用户的id
+        service.getUserid = function() {
+            return $localStorage.userId ;
+        }
+        
     }])
 });
-
-
-

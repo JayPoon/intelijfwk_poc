@@ -1,12 +1,12 @@
 <ion-view view-title="新用户注册">
   <ion-content class="padding">
     <form name="authorizationForm" 
-    ng-submit="signup(authorizationForm)" novalidate>
+    ng-submit="register.signup(authorizationForm)" novalidate>
     
     <!--email form-->
     <div class="list list-inset">
       <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.email.$invalid && authorizationForm.email.$dirty}">
-        <input type="email" ng-model="email" name="email" placeholder='请输入邮箱' ng-maxlength=30 autocomplete="off" required>
+        <input type="email" ng-model="register.email" name="email" placeholder='请输入邮箱' ng-maxlength=30 autocomplete="off" required>
       
       <div class="error-container" ng-show="authorizationForm.email.$dirty " ng-messages="authorizationForm.email.$error ">
               <div ng-messages-include="error-email-list.html"></div>
@@ -14,7 +14,7 @@
       </label>
       <!--password form-->
       <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.password.$invalid && authorizationForm.password.$dirty}">
-        <input type="password" name="password" ng-model="password" placeholder="请输入6~12位密码" autocomplete="off"
+        <input type="password" name="password" ng-model="register.password" placeholder="请输入6~12位密码" autocomplete="off"
         ng-minlength=6 ng-maxlength=12 required>
       
       
@@ -24,8 +24,8 @@
       </label>
       <!--repassword-->
       <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.cfmpassword.$invalid && authorizationForm.cfmpassword.$dirty}">
-         <input ng-model="cfmpassword" type="password" name="cfmpassword" placeholder='再次输入密码' required
-         compare-to="password">
+         <input ng-model="register.cfmpassword" type="password" name="cfmpassword" placeholder='再次输入密码' required
+         compare-to="register.password">
 
           <div class="error-container" ng-show="authorizationForm.cfmpassword.$dirty" ng-messages="authorizationForm.cfmpassword.$error ">
               <div ng-messages-include="error-pwd-list.html"></div>
@@ -36,7 +36,7 @@
 		<div class="padding">
 			<button type="submit" 
             class="button button-block button-positive"
-            
+            ng-disabled="!authorizationForm.$valid"
             >注册</button>
 		</div>
     </form>

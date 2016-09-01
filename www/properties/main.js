@@ -32,7 +32,6 @@
             // 'ng-clip': vendorPath + '/ng-clip/dest/ng-clip.min',
             'app': './properties/app',
             'bootstrap': './properties/bootstrap',
-            'backand' : vendorPath + '/angularbknd-sdk/dist/backand.min',
             'ngCordovaMocks':  vendorPath + '/ngCordova/dist/ng-cordova-mocks.min',
             'ngCordova':  vendorPath + '/ngCordova/dist/ng-cordova.min',
             'angular-messages':  vendorPath + '/angular-messages/angular-messages.min',
@@ -45,7 +44,6 @@
         shim: {
             // 'jQuery': { exports: 'jQuery'},
             'angular': { exports: 'angular'},
-            'backand' : {deps: ['angular']},
             'ngCordova' : {deps: ['angular']},
             'ngCordovaMocks' : {deps: ['angular']},
             // 'ui.router': { deps: ['angular']},

@@ -6,7 +6,7 @@ define(['angular'], function (angular) {
         return {
             require: "ngModel",
             scope: {
-            otherModelValue: "=compareTo"
+                otherModelValue: "=compareTo"
             },
             link: function(scope, element, attributes, ngModel) {
             

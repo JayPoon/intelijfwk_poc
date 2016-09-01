@@ -1,36 +1,42 @@
-<ion-view view-title="登录">
+<ion-view view-title="登录" hide-back-button="true">
   <ion-content class="padding">
    
     <div class="login_title">
       <img class="login_title_img"" src="img/login/logo@2x.png">
     </div>
-    
-    <div class="list list-inset">
-      <label class="item item-input ">
-        <i class="icon ion-ios-person-outline positive"></i>
-        <input type="text" ng-model="email" placeholder='请输入邮箱'>
-      </label>
-      <label class="item item-input">
-				<i class="icon ion-ios-unlocked-outline positive"></i>
-				<input type="password" placeholder="请输入您的密码">
-			</label>
-       <div class="row">
-			<div class="col col-33 col-offset-67">
-          没有账号?<a href="/#register"> 新用户注册</a>
+    <form name="authorForm" 
+      ng-submit="login.signIn(authorForm)" novalidate>
+      <div class="list list-inset">
+        <label class="item item-input " 
+        ng-class="{ 'has-errors' : authorForm.email.$invalid && authorForm.email.$dirty}">
+          <i class="icon ion-ios-person-outline positive"></i>
+        <input type="email" ng-model="login.email" name="email" placeholder='请输入邮箱' ng-maxlength=30 autocomplete="off" required>
+
+          <div class="error-container" ng-show="authorForm.email.$dirty " ng-messages="authorForm.email.$error ">
+                  <div ng-messages-include="error-email-list.html"></div>
+          </div>
         
+        </label>
+        <label class="item item-input"
+        ng-class="{ 'has-errors' : authorForm.password.$invalid && authorForm.password.$dirty}">
+          <i class="icon ion-ios-unlocked-outline positive"></i>
+            <input type="password" name="password" ng-model="login.password" placeholder="请输入6~12位密码" autocomplete="off"
+        ng-minlength=6 ng-maxlength=12 required>
+          <div class="error-container" ng-show="authorForm.password.$dirty" ng-messages="authorForm.password.$error ">
+                  <div ng-messages-include="error-pwd-list.html"></div>
+          </div>
+        </label>
+        <div class="row">
+          <div class="col col-50 ">
+              <span>没有账号?<a href="/#register"> 新用户注册</a> <span> 
+          </div>
+        </div>
       </div>
-    </div>
-			<!--<label class="item item-checkbox">
-				<label class="checkbox">
-					<input type="checkbox" checked>
-				</label>
-				记住密码
-			</label>-->
-		</div>
-   
-		<div class="button-bar">
-			<button class="button button-block button-positive">登录</button>
-		</div>
+    
+      <div class="button-bar">
+        <button type="submit" class="button button-block button-positive" >登录</button>
+      </div>
+    </form>
     
     <div class="third">第三方登录</div>
     <div class="button-bar">
@@ -45,6 +51,38 @@
       </div>
 		</div>
   </ion-content>
+  <script id="error-email-list.html" type="text/ng-template">  
+        <div class="error" ng-message="required">
+        <span>请输入邮箱!</span>
+        </div>
+        <div class="error" ng-message="minlength">
+        <span>请输入邮箱!</span>
+        </div>
+        <div class="error" ng-message="maxlength">
+        <span>请输入邮箱!</span>
+        </div>
+        <div class="error" ng-message="email">
+        <span>非法的邮箱格式!</span>
+        </div>
+    </script>   
+    <script id="error-pwd-list.html" type="text/ng-template">  
+        <div class="error" ng-message="required"><span>
+        请输入6~12位密码</span>
+        </div>
+        <div class="error" ng-message="minlength">
+        <span>
+        请输入6~12位密码</span>
+        </div>
+        <div class="error" ng-message="maxlength">
+        <span>
+        请输入6~12位密码</span>
+        </div>
+        <div class="error" ng-message="compareTo">
+        <span>
+            输入的密码不一致
+        </span>
+        </div>
+    </script>  
 </ion-view>
 
 

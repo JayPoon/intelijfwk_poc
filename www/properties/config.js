@@ -13,22 +13,22 @@
             }
         },
         root:"",
-        base_url:"http://jaypoon-intellijfwkpoc.daoapp.io/",
-    //backend接口
-        backends:"http://jaypoon-intellijfwkpoc.daoapp.io/",
-    //http访问地址
+        base_url:"http://jaypoon-intellijfwkpoc.daoapp.io",
+        //backend接口
+        backends:"http://jaypoon-intellijfwkpoc.daoapp.io",
+         //http访问地址
         html_path:"",
-    //默认资源存放位置
+         //默认资源存放位置
         template_path:"",
-    //js存放位置
+        //js存放位置
         js_path:"",
-    //css存放位置
+        //css存放位置
         css_path:"",
         /*ajax远程请求地址*/
         remote_url:"",
-    //默认定义参数
+        //默认定义参数
         timestmpt:"",
-    img_path:"http://jaypoon-intellijfwkpoc.daoapp.io/c_manageController/download.do?fileName=428778e0-1bff-4102-9398-ed6469b7784e.png",
+        img_path:"http://jaypoon-intellijfwkpoc.daoapp.io/c_manageController/download.do?fileName=428778e0-1bff-4102-9398-ed6469b7784e.png",
         css:{
             index:"index.css",
             login:"login.css"

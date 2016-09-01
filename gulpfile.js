@@ -5,10 +5,13 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var shell = require('gulp-shell');
 var sh = require('shelljs');
+var jshint = require('gulp-jshint');
 
 var paths = {
   sass: ['./scss/**/*.scss']
+  ,prepare :['./www/**/*']
 };
 
 gulp.task('default', ['sass']);
@@ -28,6 +31,7 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.prepare, ['prepare']);
 });
 
 gulp.task('install', ['git-check'], function() {
@@ -49,3 +53,14 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+ gulp.task('hint', function(){
+  gulp.src('./www/js/**/*.js')  // 检查文件：js目录下所有的js文件
+        .pipe(jshint())       // 进行检查
+        .pipe(jshint.reporter('default'))  // 对代码进行报错提示
+});
+
+ gulp.task('prepare', shell.task([
+  'cordova prepare'
+]));
+

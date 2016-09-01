@@ -3,41 +3,27 @@ define(["./controllers"], function (controllers) {
   "use strict";
 
   controllers.controller("loginCtrl", ["$scope", "$state", "$localStorage", "$timeout", "loginService",
-    function ($scope, $state, $localStorage, $timeout, loginService, cordovaService) {
+    function ($scope, $state, $localStorage, $timeout, loginService) {
+      var vm = this;
       
       //注册界面
-      $scope.register = function () {
+      this.register = function () {
         $state.go("register");
       }
 
       //验证邮箱和密码
-      $scope.signIn = function () {
-        var flag = true;
-        var Regex = /^(?:\w+\.?)*\w+@(?:\w+\.)*\w+$/;
-        if ($scope.email == undefined) {
-          alert("邮箱不能为空");
-          flag = false;
-        } else if (!Regex.test($scope.email)) {
-          alert("您输入的邮箱不正确");
-          flag = false;
-        }
-        if ($scope.password == undefined) {
-          alert("您输入的密码不能为空");
-          flag = false;
-        }
-        if (flag) {
-          var params = {
-            "account": $scope.email,
-            "pasw": $scope.password
+      this.signIn = function (form) {
+        if(form.$valid){
+            var params = {
+            "account": this.email,
+            "pasw": this.password
           };
           //调用登录的service方法
-          loginService.getUserLogin(params).then(function (responseData) {
+          loginService.login(params).then(function (responseData) {
             if (responseData.status == "1") {
-              //保存 userId
-              window.localStorage.setItem("userId", responseData.t.userId);
               $state.go("search");
             } else {
-              alert("账号密码错误")
+              alert(responseData.msg)
             }
           }, function (errorMessage) {
             console.log(errorMessage);
@@ -45,90 +31,47 @@ define(["./controllers"], function (controllers) {
         }
       };
 
-
       //qq 登入
       $scope.qqclick = function () {
-        alert("qq 登入");
         //QQ登录
         var checkClientIsInstalled = 1;//default is 0,only for iOS
         YCQQ.ssoLogin(function(args){
-          alert(args.access_token);
-          alert(args.userid);
-        },function(failReason){
-          console.log(failReason);
+          alert("qq登录成功！用户ID" + args.userid);
+          console.log(args.access_token);
+          console.log(args.userid);
+        },function(reason){
+          alert("微信登录失败！原因： " + reason);
         },checkClientIsInstalled);
-
-
-
-
-
-        // exec(qqMessageSuccess, qqMessageError, "ThirdLoginPlugin", "qqLogin", ["qq", "123"]);
+       
       }
-
-
-      // function qqMessageSuccess(result) {
-      //   alert("你成功连接IOS 插件 这是qqclick返回数据：" + result);
-      // }
-      //
-      // function qqMessageError(result) {
-      //   alert("失败了:(  " + result);
-      // }
 
       //微信 登入
       $scope.wxclick = function () {
-        alert("微信 登入");
         //微信登录
         var scope = "snsapi_userinfo";
         Wechat.auth(scope, function (response) {
+          alert("微信登录成功！");
           // you may use response.code to get the access token.
-          alert(JSON.stringify(response));
+          console.log(JSON.stringify(response));
         }, function (reason) {
-          alert("Failed: " + reason);
+          alert("微信登录失败！原因： " + reason);
         });
 
-        // exec(wxMessageSuccess, wxMessageError, "ThirdLoginPlugin", "wxLogin", ["wechat", "123"]);
+     
       }
 
-      // function wxMessageSuccess(result) {
-      //   alert("你成功连接IOS 插件 这是wxclick返回数据：" + result);
-      // }
-      //
-      // function wxMessageError(result) {
-      //   alert("失败了:(  " + result);
-      // }
-
-
-      //新浪 登入
+      //微博 登入
       $scope.sinaclick = function () {
-
-
-        alert("新浪 登入");
-
         //微博登录
         YCWeibo.ssoLogin(function(args){
-          alert(args.access_token);
-          alert(args.userid);
-        },function(failReason){
-          console.log(failReason);
+          alert("微博登录成功！用户ID" + args.userid);
+          console.log(args.access_token);
+          console.log(args.userid);
+        },function(reason){
+           alert("微信登录失败！原因： " + reason);
         });
 
-        // exec(sinaMessageSuccess, sinaMessageError, "ThirdLoginPlugin", "sinaLogin", ["sina", "123"]);
       }
-
-      // function sinaMessageSuccess(result) {
-      //   alert("你成功连接IOS 插件 这是sinaclick返回数据：" + result);
-      // }
-      //
-      // function sinaMessageError(result) {
-      //   alert("失败了:(  " + result);
-      // }
-      //
-
-
-
-
-
-
     }])
 });
 

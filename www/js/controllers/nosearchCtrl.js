@@ -2,16 +2,16 @@
 define(["./../controllers/controllers"], function (controllers) {
     "use strict";
 
-    controllers.controller("nosearchCtrl", ["$scope", "$state", "$localStorage", "$timeout", "$stateParams","searchService",
-        function ($scope, $state, $localStorage,$timeout, $stateParams,searchService) {
-            $scope.imgpath=$config.img_path;
+    controllers.controller("nosearchCtrl", ["$scope", "$state", "$localStorage", "loginService", "$stateParams","searchService",
+        function ($scope, $state, $localStorage,loginService, $stateParams,searchService) {
+            $scope.imgpath= $config.img_path;
             $scope.searchNames = $stateParams.searchName;
             $scope.searchs = {};
             //进入这个页面是
             $scope.load = function () {
                 var params = {
                     "markType": "2",
-                    "userId": window.localStorage.getItem("userId")
+                    "userId": loginService.getUserid()
                 };
                 //调用方法
                 searchService.mobile_mobileMarkList(params).then(function (data) {
@@ -34,10 +34,9 @@ define(["./../controllers/controllers"], function (controllers) {
             $scope.load();
 
             $scope.care = function (title) {
-                // http://localhost:8080/clt/loginController/mobile_mobileMark.do?systemId=1&userId=2
                 var params = {
                     "systemId": title,
-                    "userId":window.localStorage.getItem("userId")
+                    "userId": loginService.getUserid()
                 };
                 //调用方法
                 searchService.mobile_mobileMark(params).then(function (data) {
@@ -49,10 +48,6 @@ define(["./../controllers/controllers"], function (controllers) {
                     console.log(errorMessage);
                 });
 
-            }
-
-            $scope.backto = function () {
-                $state.go("login");
             }
 
         }])

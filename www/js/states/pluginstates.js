@@ -89,8 +89,7 @@ define([ "./states" ], function(states) {
 					}
 				})
 
-				// $urlRouterProvider.otherwise("/tab/entrance");
-				$urlRouterProvider.otherwise("/tab/plugins");
+				
 
 			} );
 });

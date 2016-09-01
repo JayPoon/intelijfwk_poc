@@ -1,0 +1,53 @@
+<ion-content style="background-color: white">
+    <div ng-controller="searchCtrl">
+        <link href="css/third/search.css" rel="stylesheet">
+        <header style="height: 64px;width:100%;">
+            <div style=" background-color: #2d6bb0;height: 20px"></div>
+            <div class="id_header" ><b>公众号</b>
+                <div style="width: 50px;float: left"  ng-click="backto()">
+                    <div class="back"></div>
+                </div>
+                <div class="go" ng-click="goto()"><b>...</b></div>
+            </div>
+        </header>
+        <div>
+            <div class="bar item-input-inset">
+                <div ng-click="search()" style="width: 30px"><i class="icon  ion-ios-search-strong placeholder-icon" ></i></div>
+                <label class="item-input-wrapper">
+                    <!--<input type="search" placeholder="搜索" ng-model="searchName" ng-change="search(searchName)">-->
+                    <input type="search" placeholder="搜索" ng-model="searchName" >
+                </label>
+            </div>
+            <div>
+                <div class="search_care">已关注</div>
+                <div class="search_list" ng-repeat="search in searchs track by $index"
+                     ng-click="getInfo(search.sys_title)">
+                    <div class="search_img-div">
+                        <img class="search_img"  ng-src="{{imgpath}}">
+                    </div>
+                    <div class="titles">{{search.sys_title}}</div>
+                    <div class="search_recare" >已关注
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>
+
+
+<!--<ion-refresher pulling-text="正在刷新." on-refresh="doRefresh()"></ion-refresher>-->
+<!--<div class="search_list" ng-repeat="search in searchs track by $index">-->
+<!--<div class="search_img-div">-->
+<!--<img class="search_img" src="{{search.sys_pic}}">-->
+<!--</div>-->
+<!--<div class="titles" >{{search.sys_title}}</div>-->
+<!--<div class="search_nocare" ng-click="care(search.sys_title)">+关注</div>-->
+<!--</div>-->
+<!--<ion-infinite-scroll pulling-text="正在加载." on-infinite="loadMore()" ng-if="hasmore"></ion-infinite-scroll>-->
+
+
+
+
+

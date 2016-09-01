@@ -1,4 +1,8 @@
 {
   "name": "intelijfwk_poc",
-  "app_id": ""
+  "app_id": "7383546a",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ]
 }
