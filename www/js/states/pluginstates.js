@@ -10,9 +10,9 @@ define([ "./states" ], function(states) {
 				// $ionicConfigProvider.platform.ios.navBar.alignTitle('center'); 
 				// $ionicConfigProvider.platform.android.navBar.alignTitle('left');
 
-				$ionicConfigProvider.backButton.text('')
-				$ionicConfigProvider.platform.ios.backButton.text('')//.previousTitleText('').icon('ion-ios-arrow-thin-left');
-				$ionicConfigProvider.platform.android.backButton.text('')
+				$ionicConfigProvider.backButton.text('');
+				$ionicConfigProvider.platform.ios.backButton.text('');//.previousTitleText('').icon('ion-ios-arrow-thin-left');
+				$ionicConfigProvider.platform.android.backButton.text('');
 				
 				// .previousTitleText('')// .icon('ion-android-arrow-back');        
 

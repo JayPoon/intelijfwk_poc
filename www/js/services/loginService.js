@@ -20,7 +20,7 @@ define(["./services"], function (services) {
         }
 		//判读是否为登录状态
         service.isLogin = function() {
-            return $localStorage.userId != undefined && $localStorage.userId != '';
+            return $localStorage.userId !== undefined && $localStorage.userId !== '';
         }
 		//获取当前登录用户的id
         service.getUserid = function() {
