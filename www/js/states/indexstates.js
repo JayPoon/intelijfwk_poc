@@ -27,7 +27,7 @@ define([ "./states" ], function(states) {
 				url: "/nosearch",
 				controller: 'nosearchCtrl as nosearch' ,
 				templateUrl : "views/third/nosearch.html"
-			})
+			});
 
 			 $urlRouterProvider.otherwise("/login");
 		} );

@@ -5,15 +5,15 @@ var path = require('path');
 var jshint = require('jshint').JSHINT;
 var async = require('async');
 
-var PackageJSON = require('../../package.json');
+// var PackageJSON = require('../../package.json');
 
 //Read jshint rc file
 var basepath = path.resolve(__dirname, "..","..")
 var jshintrcPath = path.join(basepath,".jshintrc")
-//var jshintRC = JSON.parse(fs.readFileSync(jshintrcPath,'utf-8'))
+var jshintRC = JSON.parse(fs.readFileSync(jshintrcPath,'utf-8'))
 
-console.log(PackageJSON.jshintConfig)
-var jshintRC = PackageJSON.jshintConfig
+// console.log(PackageJSON.jshintConfig)
+// var jshintRC = PackageJSON.jshintConfig
 
 var foldersToProcess = [
     'js',

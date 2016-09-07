@@ -9,7 +9,7 @@ define(["./controllers"], function (controllers) {
       //注册界面
       this.register = function () {
         $state.go("register");
-      }
+      };
 
       //验证邮箱和密码
       this.signIn = function (form) {
@@ -41,9 +41,8 @@ define(["./controllers"], function (controllers) {
           console.log(args.userid);
         },function(reason){
           alert("微信登录失败！原因： " + reason);
-        },checkClientIsInstalled);
-       
-      }
+        },checkClientIsInstalled);      
+      };
 
       //微信 登入
       $scope.wxclick = function () {
@@ -55,10 +54,8 @@ define(["./controllers"], function (controllers) {
           console.log(JSON.stringify(response));
         }, function (reason) {
           alert("微信登录失败！原因： " + reason);
-        });
-
-     
-      }
+        });   
+      };
 
       //微博 登入
       $scope.sinaclick = function () {
@@ -70,9 +67,8 @@ define(["./controllers"], function (controllers) {
         },function(reason){
            alert("微信登录失败！原因： " + reason);
         });
-
-      }
-    }])
+      };
+    }]);
 });
 
 

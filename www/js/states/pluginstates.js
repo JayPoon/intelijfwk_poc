@@ -87,7 +87,7 @@ define([ "./states" ], function(states) {
 							controller: 'BarcodeCtrl'
 						}
 					}
-				})
+				});
 
 				
 

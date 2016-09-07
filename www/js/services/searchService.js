@@ -27,10 +27,10 @@ define(["./services"], function (services) {
       // }
       this.mobile_mobileMarkList = function(params){
         return apiService.Post('/loginController/mobile_mobileMarkList.do', params);
-      }
+      };
       this.mobile_mobileMark = function(params){
         return apiService.Post('/loginController/mobile_mobileMark.do', params);
-      }
+      };
 
-    }])
+    }]);
 });

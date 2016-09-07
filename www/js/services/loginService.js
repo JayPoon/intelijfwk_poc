@@ -12,20 +12,20 @@ define(["./services"], function (services) {
                 }
                 return responseData;
             });
-        }
+        };
 		//用户登出服务
         service.logout = function() {
             delete $localStorage.userId;
             $rootScope.$broadcast('unauthorized');
-        }
+        };
 		//判读是否为登录状态
         service.isLogin = function() {
             return $localStorage.userId !== undefined && $localStorage.userId !== '';
-        }
+        };
 		//获取当前登录用户的id
         service.getUserid = function() {
             return $localStorage.userId ;
-        }
+        };
         
-    }])
+    }]);
 });

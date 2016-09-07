@@ -7,9 +7,9 @@ define([ "./../controllers/controllers" ], function (controllers) {
 
             $scope.backto = function () {
                 $state.go("search");
-            }
+            };
             $scope.infoItem=$stateParams.infoItem;
-        } ])
+        } ]);
 
 });
 

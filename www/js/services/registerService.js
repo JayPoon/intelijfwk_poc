@@ -7,7 +7,7 @@ define(["./services"], function (services) {
         service.register = function(params){
             return apiService.Post('/loginController/mobile_userReg.do', params);
         };
-    })
+    });
 });
 
 
